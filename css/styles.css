@@ -20,6 +20,7 @@ html {
   --color-solid: #e7e9fc;
   --color-solid-logo: #8E8F99;
   --color-green: #31D0AA;
+  --color-model: #FCFCFC;
 
 }
 
@@ -60,9 +61,11 @@ p {
   margin-top: 0;
   margin-bottom: 0;
 }
-ul{
+
+ul {
   padding: 0;
 }
+
 img {
   display: block;
   max-width: 100%;
@@ -116,7 +119,6 @@ img {
 }
 
 .site-nav .link {
- 
   text-decoration: none;
   color: var(--color-NAVYBLU);
   font-style: normal;
@@ -127,15 +129,21 @@ img {
   display: block;
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-nav-line {
+  position: relative;
 
 }
-.line::after{
-  left: 0;
-  bottom: 0;
+
+.site-nav-line::after {
+  position: absolute;
   content: "";
-  width: 48px;
-  height: 4px;  
-  display: flex;
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: 21px;
   background-color: var(--color-OCEAN);
   border-radius: 2px;
 
@@ -163,8 +171,9 @@ img {
   display: block;
   padding-top: 24px;
   padding-bottom: 24px;
-
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .navigation-nav .link:hover,
 .navigation-nav .link:focus {
@@ -181,7 +190,7 @@ img {
 }
 
 .navigation-nav .item+.item {
- margin-left: 40px;
+  margin-left: 40px;
 }
 
 /*-----------------------------Герой------------------------------------------------*/
@@ -199,7 +208,6 @@ img {
   background-position: center;
   background-size: cover;
   background-color: var(--color-background-hero)
-
 }
 
 .hero-title {
@@ -233,6 +241,7 @@ img {
   padding: 16px 32px;
   text-align: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover {
@@ -247,6 +256,63 @@ img {
 
 .box>.item+.item {
   margin-left: 24px;
+}
+
+/*-------------------------МОДЕЛЬНЕ ВІКНО---------------------------МОДЕЛЬНЕ ВІКНО-------------------------------МОДЕЛЬНЕ ВІКНО-------------------------*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate (-50%, -50%) scale(0.9);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  min-width: 408px;
+  min-height: 576px;
+  background-color: var(--color-model);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button {
+  position: absolute;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-solid);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  top: 32px;
+  right: 24px;
+  fill: var(--color-NAVYBLU);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  fill: var(--color-WHITE);
+  background-color: var(--color-OCEAN);
 }
 
 /*---------------------------Секції---------------------------------------*/
@@ -266,11 +332,14 @@ img {
   padding: 12px 24px;
   text-align: center;
   border: 1px solid var(--color-solid);
-
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .button:hover,
-.button:focus{
+.button:focus {
   background-color: var(--color-OCEAN);
   color: var(--color-WHITE);
   border-color: transparent;
@@ -283,7 +352,6 @@ img {
 
 /*----------------------------------------Картинки з текстом---------------------------*/
 .card-box {
-  
   display: flex;
   flex-wrap: wrap;
   row-gap: 48px;
@@ -295,16 +363,18 @@ img {
   background-color: var(--color-WHITE);
 
 }
-.link-card{
+
+.link-card {
   display: block;
   text-decoration: none;
   font-style: normal;
-  
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .link-card:focus,
-.link-card:hover{
-  
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08); 
+.link-card:hover {
+
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .card-text {
@@ -320,42 +390,49 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-  }
-.card-thumb{
-    position: relative;
-  }
-  .text-thumb{
-    position: absolute;
-    font-style: normal;
-    font-weight: 400;
-    width: 296px;
-    font-size: 16px;
-    color: var(--color-Cloud);
-    left: 32px;
-    top: 40px;
-    letter-spacing: 0.02em;
-  }
-/*-------------------------------Оверлей з текстом на картках сторінки Портфоліо -----------------------*/
-/*.card-thumb{
-  position: relative;
 }
-/*
-.card-thumb::before{
+
+.card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover .overl {
+  transform: translateY(0);
+}
+
+.overl {
   position: absolute;
   width: 100%;
   height: 100%;
   content: "";
   display: inline-block;
   background-color: var(--color-IRIS);
-  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
-.card-thumb:hover::before,
-.card-thumb:focus::before
-{
+
+.card-thumb:hover.overl {
   opacity: 1;
-}*/
+}
 
+.card-thumb:hover .text-thumb {
+  opacity: 1;
+}
 
+.text-thumb {
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  width: 296px;
+  font-size: 16px;
+  color: var(--color-Cloud);
+  left: 32px;
+  top: 40px;
+  letter-spacing: 0.02em;
+
+}
 
 /*------------------------- Фотографія з текстом*---------------------------------------*/
 
@@ -376,7 +453,7 @@ img {
 
 .card-text-photo {
   text-align: center;
-  padding:32px 0 ;
+  padding: 32px 0;
 
 }
 
@@ -488,6 +565,7 @@ img {
   border-radius: 4px;
 
 }
+
 /*--------------------------------------------strategy-----------------------------------*/
 .icon-strategy::before {
   background-image: url(../images/SVG/antenna\ 1.svg);
@@ -503,6 +581,7 @@ img {
   background-image: url(../images/SVG/diagram\ 1.svg);
   margin-bottom: 8px;
 }
+
 .icon-technologies::before {
   background-image: url(../images/SVG/astronaut\ 1.svg);
   margin-bottom: 8px;
@@ -531,25 +610,28 @@ img {
   align-items: center;
   padding: 0px;
   gap: 24px;
-  
+
 }
 
 
-.icon-logo-link{
- fill: var(--color-solid-logo);
- display: flex;
+.icon-logo-link {
+  fill: var(--color-solid-logo);
+  display: flex;
   gap: 24px;
   background: var(--color-WHITE);
   border: 1px solid var(--color-solid-logo);
   border-radius: 4px;
   padding: 16px 32px;
-
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
 .icon-logo-link:hover,
-.icon-logo-link:focus
-{ fill: var(--color-OCEAN);
-  border-color:  var(--color-OCEAN);
-  
+.icon-logo-link:focus {
+  fill: var(--color-OCEAN);
+  border-color: var(--color-OCEAN);
+
 }
 
 
@@ -587,6 +669,7 @@ img {
 
 .icon-link {
   fill: var(--color-Cloud);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-link:hover,

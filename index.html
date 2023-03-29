@@ -13,14 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
-<button> Відкрити модельне вікно</button>
- <div class="backdrop is-hidden" >
- <div class="modal">
-  <p></p>
-  <button>Закрити</button>
- </div>
-</div>
-<script src="./js/modal.js"></script>
+
 <body>
   <header class="page-header">
     <div class="container header-nav ">
@@ -29,9 +22,9 @@
           Web<span class="text-logo-header">Studio</span>
         </a>
         <ul class="site-nav list">
-          <li class="item line"><a href="./index.html" class="link">Studio</a></li>
+          <li class="item "><a href="./index.html" class="link site-nav-line">Studio</a></li>
           <li class="item"><a href="./portfolio.html" class="link">Portfolio</a></li>
-          <li class="item"><a href="" class="link">Contacts</a></li> 
+          <li class="item"><a href="" class="link">Contacts</a></li>
         </ul>
       </nav>
       <address class="navigation-nav header-nav">
@@ -50,7 +43,7 @@
     <section class=" hero">
       <div class="container ">
         <h1 class="hero-title">Effective Solutions for Your Business</h1>
-        <button type="button" class="hero-button"> Order Service</button>
+        <button data-modal-open type="button" class="hero-button"> Order Service</button>
       </div>
     </section>
     <section class="section-subtitles">
@@ -145,7 +138,7 @@
                 </li>
               </ul>
             </div>
-          </li>  
+          </li>
           <li class=" card-photo ">
             <img src="./images/index/img5.jpg" alt="Tom Ford" width="264" height="260" />
             <div class="card-text-photo">
@@ -351,6 +344,16 @@
       </ul>
     </div>
   </footer>
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <button data-modal-close type="button" class="modal-button">
+        <svg width="8" height="8">
+          <use href="./images/SVG/symbol-defs.svg#close-black-18dp-2-1"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>
