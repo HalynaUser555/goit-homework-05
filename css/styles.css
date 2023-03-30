@@ -116,12 +116,11 @@ img {
 
 .site-nav .item+.item {
   margin-left: 40px;
+
 }
 
 .site-nav .link {
-  text-decoration: none;
-  color: var(--color-NAVYBLU);
-  font-style: normal;
+  position: relative;
   letter-spacing: 0.02em;
   font-weight: 500;
   line-height: 1.5;
@@ -130,11 +129,19 @@ img {
   padding-top: 24px;
   padding-bottom: 24px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.site-nav-active {
+  color: var(--color-OCEAN);
+}
+
+.site-nav-stay {
+  color: var(--color-NAVYBLU);
 }
 
 .site-nav-line {
   position: relative;
-
 }
 
 .site-nav-line::after {
@@ -146,15 +153,23 @@ img {
   margin-top: 21px;
   background-color: var(--color-OCEAN);
   border-radius: 2px;
+  /* opacity:0 ; */
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
+/* .site-nav-line:hover::after
+{
+opacity:1; 
+} */
 .link {
   text-decoration: none;
   font-style: normal;
+
 }
 
-.site-nav .link:focus {
+.site-nav .link:focus,
+.site-nav .link:hover {
   color: var(--color-OCEAN);
   text-decoration: none;
   font-style: normal;
@@ -268,11 +283,12 @@ img {
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1)
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .backdrop.is-hidden {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none
 }
 
@@ -305,6 +321,7 @@ img {
   border-radius: 50%;
   top: 32px;
   right: 24px;
+  cursor: pointer;
   fill: var(--color-NAVYBLU);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
@@ -664,19 +681,18 @@ img {
   height: 40px;
   background-color: var(--color-IRIS);
   border-radius: 50%;
-
-}
-
-.icon-link {
-  fill: var(--color-Cloud);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon-link:hover,
-.icon-link:focus,
+
+.icon-link {
+  fill: var(--color-Cloud);
+
+}
+
 .team-icon:hover,
 .team-icon:focus {
-  background-color: var(--color-green)
+  background-color: var(--color-OCEAN)
 }
 
 /*----------------------------------------footer-----------------------------------------*/
@@ -732,4 +748,9 @@ img {
   display: flex;
   justify-content: flex-start;
   gap: 16px;
+}
+
+.team-icon-footer:hover,
+.team-icon-footer:focus {
+  background-color: var(--color-green)
 }
