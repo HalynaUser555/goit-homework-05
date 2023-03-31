@@ -431,13 +431,13 @@ opacity:1;
 
 }
 
-.card-thumb:hover.overl {
-  opacity: 1;
-}
+  .card-thumb:hover.overl {
+    opacity: 1;
+  }
 
-.card-thumb:hover .text-thumb {
-  opacity: 1;
-}
+  .card-thumb:hover .text-thumb {
+    opacity: 1;
+  }
 
 .text-thumb {
   position: absolute;
@@ -565,7 +565,9 @@ opacity:1;
   font-weight: 400;
 }
 
-
+.text-paragraph{
+  display: flex;
+}
 
 .text-paragraph .item {
   width: 264px;
