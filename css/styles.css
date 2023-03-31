@@ -414,7 +414,8 @@ opacity:1;
   overflow: hidden;
 }
 
-.card:hover .overl {
+.link-card:hover .overl,
+.link-card:focus .overl {
   transform: translateY(0);
 }
 
@@ -564,9 +565,7 @@ opacity:1;
   font-weight: 400;
 }
 
-.text-paragraph {
-  display: flex;
-}
+
 
 .text-paragraph .item {
   width: 264px;
