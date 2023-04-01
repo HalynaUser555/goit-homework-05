@@ -402,6 +402,15 @@ opacity:1;
   border-top: none;
 
 }
+.card-paragraph{
+font-style: normal;
+color: var(--color-SLATE);
+letter-spacing: 0.02em;
+line-height: 1.5;
+font-size: 16px;
+font-weight: 400;
+}
+
 
 .img {
   display: block;
@@ -536,7 +545,7 @@ opacity:1;
   font-size: 20px;
   line-height: 1.2;
   margin-bottom: 8px;
-  border: 1px;
+
 }
 
 .section-subtitles {
@@ -697,6 +706,10 @@ opacity:1;
 }
 
 /*----------------------------------------footer-----------------------------------------*/
+.footer-container{
+display: flex;
+gap: 120px;
+}
 .text-footer {
   font-style: normal;
   color: var(--color-Cloud);
@@ -732,19 +745,10 @@ opacity:1;
 }
 
 .social-text {
-  padding-bottom: 16px;
-  width: 500px;
+  font-weight: 500;
+  margin-bottom: 16px;
   color: var(--color-WHITE);
 }
-
-.icon-footer {
-  display: flex;
-}
-
-.social-item {
-  margin-left: 120px;
-}
-
 .container-icon-footer {
   display: flex;
   justify-content: flex-start;
